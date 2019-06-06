@@ -7,60 +7,66 @@ class BasicPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: <Widget>[
-        _createImage(),
-        _createTitle(),
-        _createActions(),
-        _createTextArea(),
-      ],
-    ));
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            _createImage(),
+            _createTitle(),
+            _createActions(),
+            _createTextArea(),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _createImage() {
     return Image(
       image: NetworkImage(
           'https://iso.500px.com/wp-content/uploads/2014/07/big-one.jpg'),
+          fit: BoxFit.cover,
       // alignment: Alignment.center,
     );
   }
 
   Widget _createTitle() {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 30.0,
-        vertical: 20.0,
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Dead road',
-                  style: _titleStyle,
-                ),
-                SizedBox(
-                  height: 7.0,
-                ),
-                Text(
-                  'Dead road with a huge mountain',
-                  style: _subtitleStyle,
-                ),
-              ],
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 30.0,
+          vertical: 20.0,
+        ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Dead road',
+                    style: _titleStyle,
+                  ),
+                  SizedBox(
+                    height: 7.0,
+                  ),
+                  Text(
+                    'Dead road with a huge mountain',
+                    style: _subtitleStyle,
+                  ),
+                ],
+              ),
             ),
-          ),
-          Icon(
-            Icons.star,
-            color: Colors.red,
-            size: 30.0,
-          ),
-          Text(
-            '41',
-            style: TextStyle(fontSize: 20.0),
-          )
-        ],
+            Icon(
+              Icons.star,
+              color: Colors.red,
+              size: 30.0,
+            ),
+            Text(
+              '41',
+              style: TextStyle(fontSize: 20.0),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -99,11 +105,13 @@ class BasicPage extends StatelessWidget {
   }
 
   Widget _createTextArea() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-      child: Text(
-        'Enim nisi velit laboris commodo officia aliqua sint. Exercitation deserunt veniam id veniam exercitation. Minim commodo anim laborum aute consequat proident eiusmod quis ut. Elit dolore et eiusmod pariatur ea mollit velit non irure non ullamco ut sint elit. Minim velit fugiat laborum ad aute magna cupidatat veniam sunt anim officia ipsum Lorem. Anim excepteur aliqua eu magna magna ullamco do ullamco. Reprehenderit adipisicing magna ea magna irure nisi eu cillum esse eiusmod duis et ipsum.',
-        textAlign: TextAlign.justify,
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+        child: Text(
+          'Enim nisi velit laboris commodo officia aliqua sint. Exercitation deserunt veniam id veniam exercitation. Minim commodo anim laborum aute consequat proident eiusmod quis ut. Elit dolore et eiusmod pariatur ea mollit velit non irure non ullamco ut sint elit. Minim velit fugiat laborum ad aute magna cupidatat veniam sunt anim officia ipsum Lorem. Anim excepteur aliqua eu magna magna ullamco do ullamco. Reprehenderit adipisicing magna ea magna irure nisi eu cillum esse eiusmod duis et ipsum.',
+          textAlign: TextAlign.justify,
+        ),
       ),
     );
   }
